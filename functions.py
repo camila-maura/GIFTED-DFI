@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.optimize import curve_fit
 
+
 def sig(x, a, b, c, d):
     """Compute sigmoidal value for the given delay.
     Args:
@@ -14,6 +15,7 @@ def sig(x, a, b, c, d):
         sig (1D np.array): Vector with values for the given delay points.
     """
     return a + b / (1 + np.exp(-(x - c) / d))
+
 
 def alter_sig(x, c, d):
     """Compute sigmoidal value for the given delay.
@@ -31,6 +33,7 @@ def alter_sig(x, c, d):
     global b
 
     return a + b / (1 + np.exp(-(x - c) / d))
+
 
 ## Sigmoid function fitting
 def sigfit(x, y):
@@ -78,6 +81,7 @@ def sigfit(x, y):
     d = sigpar[3]
 
     return a, b, c, d
+
 
 def alter_sigfit(x, y):
     """Fit the RT data to a sigmoidal function.
